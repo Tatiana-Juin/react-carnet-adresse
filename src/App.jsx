@@ -35,14 +35,19 @@ function App() {
     // POUR AJOUTER LES ELEMENTS AU TABLEAUX
     function handleSubmit(e){
       e.preventDefault();
-      // console.log("test");
+      if(dataName.trim() != '' && dataTel.length ==10){
+        setContacts(
+          ...contacts,
+          {id:contacts.length+1, name:dataName,tel: dataTel}
+        ) 
+      }
     }
 
   return (
     <>
       <h1> Carnet d'adresse</h1>
       {/* <Cards /> */}
-      {/* onSubmit sur le form */}
+      
       <form onSubmit={handleSubmit}>
 
           {/* Name    */}
@@ -56,6 +61,8 @@ function App() {
           {/* BTN */}
           <input type="submit" value="ajouter" id='btn'/>
       </form>
+
+      
       
     </>
   )
