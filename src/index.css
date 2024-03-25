@@ -7,8 +7,9 @@
 /* TITRE DE LA PAGE */
 h1{
   text-align: center;
-  margin-top: 15px ;
-  color: purple;
+  margin-top: 25px ;
+  color: #3F4574;
+ 
 }
 
 /* POUR TOUS LE FORMULAIRE */
@@ -16,9 +17,31 @@ form{
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: 1px solid blue; */
+  
 }
 
+/* POUR TOUS LES LABEL ET INPUT  */
+label, input{
+  margin-top: 10px;
+}
+
+/* POUR LES LABELS */
+label{
+  font-size: 18px;
+}
+
+/* POUR LE NOM ET LE TEL */
 #name,#tel{
   width:20vw;
+  height:25px;
+}
+
+/* BTN  */
+#btn{
+  padding: 15px;
+  border-radius: 15px;
+  font-size:16px;
+  background-color: #E8EFFC;
+  border-color: #E8EFFC;
+  cursor: pointer; 
 }
