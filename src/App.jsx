@@ -21,23 +21,38 @@ function App() {
     const [dataTel,setDataTel] = useState('');
     // TABLEAU OU ON VA AJOUTER LES ELEMENTS 
     const [contacts,setContacts] = useState([]);
-
+    
+    // POUR RECUPERER LA VALEUR DU NOM
     function handleNameValue(e){
-      setDataName(e.target.value);
-      
+      setDataName(e.target.value); 
     }
+
+    // POUR RECUPERER LA VALEUR DU TEL
+    function handleTelValue(e){
+      setDataTel(e.target.value);
+    }
+
+    // POUR AJOUTER LES ELEMENTS AU TABLEAUX
+    function handleSubmit(e){
+      e.preventDefault();
+      // console.log("test");
+    }
+
   return (
     <>
       <h1> Carnet d'adresse</h1>
       {/* <Cards /> */}
       {/* onSubmit sur le form */}
-      <form>
+      <form onSubmit={handleSubmit}>
+
           {/* Name    */}
           <label htmlFor="name">Prénom</label>
           <input type="text" id='name' onChange={handleNameValue} required />
+
           {/* TEL */}
           <label htmlFor="tel"> Téléphone</label>
-          <input type="number" id='tel' required />
+          <input type="number" id='tel' onChange={handleTelValue} required />
+
           {/* BTN */}
           <input type="submit" value="ajouter" id='btn'/>
       </form>
