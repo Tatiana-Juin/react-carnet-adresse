@@ -4,17 +4,6 @@ import Cards from './components/Cards'
 import { useState } from 'react'
 function App() {
   
-  /* 
-    ETAPE 
-    useState => dataName (string) onChange={e=> setDataName(e.target.value)}
-    useState => dataTel (string)
-    useState => tableau vide 
-    
-    fonction pour récupérer dataName 
-    fonction pour récupérer dataTel
-    fonction pour ajouter au tableau
-
-  */
     // POUR LE NAME 
     const [dataName,setDataName] = useState('');
     // POUR LE TEL 
@@ -37,8 +26,8 @@ function App() {
       e.preventDefault();
       if(dataName.trim() != '' && dataTel.length ==10){
         setContacts(
-          ...contacts,
-          {id:contacts.length+1, name:dataName,tel: dataTel}
+          [...contacts,
+          {id:contacts.length+1, name:dataName,tel: dataTel}]
         ) 
       }
     }
@@ -61,8 +50,13 @@ function App() {
           {/* BTN */}
           <input type="submit" value="ajouter" id='btn'/>
       </form>
-
       
+      {/* APPELLE DU COMPOSANT Cards AVEC LA PROPS contacts */}
+      <Cards 
+          
+          contacts = {contacts}
+
+      />
       
     </>
   )
