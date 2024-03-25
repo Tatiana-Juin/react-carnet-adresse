@@ -6,7 +6,7 @@ function App() {
   
   /* 
     ETAPE 
-    useState => dataName (string)
+    useState => dataName (string) onChange={e=> setDataName(e.target.value)}
     useState => dataTel (string)
     useState => tableau vide 
     
@@ -22,21 +22,24 @@ function App() {
     // TABLEAU OU ON VA AJOUTER LES ELEMENTS 
     const [contacts,setContacts] = useState([]);
 
-    
+    function handleNameValue(e){
+      setDataName(e.target.value);
+      
+    }
   return (
     <>
       <h1> Carnet d'adresse</h1>
       {/* <Cards /> */}
-      
+      {/* onSubmit sur le form */}
       <form>
-          {/* Name */}
+          {/* Name    */}
           <label htmlFor="name">Prénom</label>
-          <input type="text" id='name' required />
+          <input type="text" id='name' onChange={handleNameValue} required />
           {/* TEL */}
           <label htmlFor="tel"> Téléphone</label>
           <input type="number" id='tel' required />
           {/* BTN */}
-          <input type="submit" value="ajouter" id='btn' />
+          <input type="submit" value="ajouter" id='btn'/>
       </form>
       
     </>
