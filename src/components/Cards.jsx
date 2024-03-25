@@ -1,5 +1,4 @@
 
-
 export default function Cards({contacts}) {
 
   return (
