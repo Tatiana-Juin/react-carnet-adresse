@@ -67,7 +67,6 @@ function App() {
       
       {/* APPELLE DU COMPOSANT Cards AVEC LA PROPS contacts */}
       <Cards 
-          
           contacts = {contacts}
 
       />
