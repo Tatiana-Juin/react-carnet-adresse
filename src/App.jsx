@@ -10,8 +10,7 @@ function App() {
     const [dataTel,setDataTel] = useState('');
     // TABLEAU OU ON VA AJOUTER LES ELEMENTS 
     const [contacts,setContacts] = useState([]);
-    // EN CAS D'ERREUR 
-    // const [error,setError] = useState(false);
+   
   
     // POUR RECUPERER LA VALEUR DU NOM
     function handleNameValue(e){
@@ -31,11 +30,9 @@ function App() {
           [...contacts,
           {id:contacts.length+1, name:dataName,tel: dataTel}]
         ) 
-        // setError(false);
+        
       }
-      // else{
-      //   setError(true)
-      // }
+      
     }
 
   return (
@@ -45,15 +42,7 @@ function App() {
       
       <form onSubmit={handleSubmit}>
            
-          {/* {error == false && (
-            <p>
-              Erreur tu doit saisir tout les champs OU 
-              <br />
-              le nb de chiffre du téléphone doit etre de 10
-            </p>
-          )} 
-
-          {/* Name    */}
+          {/* NOM */}
           <label htmlFor="name">Prénom</label>
           <input type="text" id='name' onChange={handleNameValue} required />
 
