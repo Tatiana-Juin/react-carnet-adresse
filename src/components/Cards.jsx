@@ -10,8 +10,9 @@ export default function Cards({contacts}) {
             <div key={contact.id} className="contactCard">
                 <p>{contact.name}</p>
                 <p>{contact.tel}</p>
-                <input type="submit" value="Modifier" />
-                <input type="submit" value="Supprimer" />
+                <input type="submit" value="Modifier" className="btnCard"/>
+                <input type="submit" value="Supprimer" className="btnCard"/>
+                
             </div>
 
         )}       
