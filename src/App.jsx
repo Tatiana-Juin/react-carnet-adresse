@@ -10,6 +10,9 @@ function App() {
     const [dataTel,setDataTel] = useState('');
     // TABLEAU OU ON VA AJOUTER LES ELEMENTS 
     const [contacts,setContacts] = useState([]);
+    // POUR MODIFIER 
+    const [updateContact,setUpdateContact] = useState('')
+    // POUR SUPPRIMER
    
   
     // POUR RECUPERER LA VALEUR DU NOM
@@ -35,6 +38,13 @@ function App() {
       
     }
 
+    // FONCTION POUR SUPPRIMER LA CARD 
+    function handleDeleteContact(id){
+      const tableUpdate = contacts.filter(contact => contact.id !==id);
+      // console.log("contact");
+      setContacts(tableUpdate);
+    } 
+
   return (
     <>
       <h1> Carnet d'adresse</h1>
@@ -57,6 +67,7 @@ function App() {
       {/* APPELLE DU COMPOSANT Cards AVEC LA PROPS contacts */}
       <Cards 
           contacts = {contacts}
+          handleDeleteContact = {handleDeleteContact}
 
       />
       

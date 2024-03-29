@@ -59,9 +59,10 @@ label{
   display: flex;
   flex-direction: column;
   border:1px solid black;
-  padding: 15px;
+  padding: 16px;
   margin-top: 15px;
   margin-left: 30px;
+  border-radius: 10px;
 }
 
 /* POUR LE NOM + TEL */

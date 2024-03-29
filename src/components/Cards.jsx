@@ -1,5 +1,5 @@
 
-export default function Cards({contacts}) {
+export default function Cards({contacts, handleDeleteContact}) {
 
   return (
     <div className='card'>
@@ -11,7 +11,7 @@ export default function Cards({contacts}) {
                 <p>{contact.name}</p>
                 <p>{contact.tel}</p>
                 <input type="submit" value="Modifier" className="btnCard"/>
-                <input type="submit" value="Supprimer" className="btnCard"/>
+                <input type="submit" value="Supprimer" className="btnCard" onClick={() => handleDeleteContact(contact.id)}/>
                 
             </div>
 
