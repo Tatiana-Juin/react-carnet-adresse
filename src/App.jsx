@@ -14,7 +14,7 @@ function App() {
     const [updateContact,setUpdateContact] = useState('')
     // POUR SUPPRIMER
    
-  
+    
     // POUR RECUPERER LA VALEUR DU NOM
     function handleNameValue(e){
       setDataName(e.target.value); 
@@ -25,13 +25,34 @@ function App() {
       setDataTel(e.target.value);
     }
 
+    // POUR CREER UN IDENTIFIANT UNIQUE 
+    let lastId = 0;
+    // récupére le timestamp au moment de l'execution de la ligne de code 
+    let lastTime = Date.now();
+
+    function createUniqueId() {
+      // recupère le timestamp au moment de l'execution de la fonction
+      const now = Date.now();
+
+      // S'il y  a 2 timestamp identique alors 
+      if (now === lastTime) {
+        // incremente de 1
+        lastId += 1;
+      } else {
+        lastId = 0;
+        lastTime = now;
+      }
+      // retourne le timetamp - la valeur lastid
+      return `${now}-${lastId}`;
+    } 
+
     // POUR AJOUTER LES ELEMENTS AU TABLEAUX
     function handleSubmit(e){
       e.preventDefault();
       if(dataName.trim() != '' && dataTel.length ==10){
         setContacts(
           [...contacts,
-          {id:contacts.length+1, name:dataName,tel: dataTel}]
+          {id:createUniqueId(), name:dataName,tel: dataTel}]
         ) 
         
       }
