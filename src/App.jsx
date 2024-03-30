@@ -10,10 +10,12 @@ function App() {
     const [dataTel,setDataTel] = useState('');
     // TABLEAU OU ON VA AJOUTER LES ELEMENTS 
     const [contacts,setContacts] = useState([]);
-    // POUR MODIFIER 
-    const [updateContact,setUpdateContact] = useState('')
     // POUR ID
-    const [id,setId] = useState(null);
+    const [dataId,setDataId] = useState(null);
+    // POUR RECUPERER LA VALEUR DU CHAMPS NOM MODIFIER 
+    const [contactNameEditing, setContactNameEditing] = useState('');
+    // POUR RECUPERER LA VALEUR DU CHAMPS TEL MODIFIER 
+    const [contactTelEditing, setContactTelEditing] = useState('');
    
     
     // POUR RECUPERER LA VALEUR DU NOM
@@ -70,14 +72,30 @@ function App() {
 
     // RECUPERE ID, LE NOM ET LE TELEPHONE 
     function handleDatasContact(id,name,tel){
-      setId(id);
-      setDataName(name);
-      setDataTel(tel)
+      setDataId(id);
+      setContactNameEditing(name);
+      setContactTelEditing(tel);
     }
 
     // FONCTION POUR MODIFIER 
     function handleModifyContact(){
-        
+      const updateContact = contacts.map(
+        contact => {
+          if(contact.id === dataId){
+
+              if(contactNameEditing.trim ()!="" && contactTelEditing.trim() !=""){
+                return {...contact,name:contactNameEditing,tel:contactTelEditing}
+              }
+              else{
+                alert("erreur . Vous devais saisir un nom et un numéro a 10 chiffre. ");
+              }
+
+          }
+          return contact;
+        }
+      )
+      setContacts(updateContact);
+      setDataId(null);
     }
 
   return (
@@ -103,7 +121,13 @@ function App() {
       <Cards 
           contacts = {contacts}
           handleDeleteContact = {handleDeleteContact}
-
+          handleDatasContact = {handleDatasContact}
+          handleModifyContact = {handleModifyContact}
+          dataId={dataId}
+          contactNameEditing = {contactNameEditing}
+          setContactNameEditing = {setContactNameEditing}
+          contactTelEditing = {contactTelEditing}
+          setContactTelEditing ={setContactTelEditing}
       />
       
     </>
