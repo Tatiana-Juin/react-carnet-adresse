@@ -12,7 +12,8 @@ function App() {
     const [contacts,setContacts] = useState([]);
     // POUR MODIFIER 
     const [updateContact,setUpdateContact] = useState('')
-    // POUR SUPPRIMER
+    // POUR ID
+    const [id,setId] = useState(null);
    
     
     // POUR RECUPERER LA VALEUR DU NOM
@@ -30,6 +31,7 @@ function App() {
     // récupére le timestamp au moment de l'execution de la ligne de code 
     let lastTime = Date.now();
 
+    // fonction pour créer un identifiant unique 
     function createUniqueId() {
       // recupère le timestamp au moment de l'execution de la fonction
       const now = Date.now();
@@ -65,6 +67,18 @@ function App() {
       // console.log("contact");
       setContacts(tableUpdate);
     } 
+
+    // RECUPERE ID, LE NOM ET LE TELEPHONE 
+    function handleDatasContact(id,name,tel){
+      setId(id);
+      setDataName(name);
+      setDataTel(tel)
+    }
+
+    // FONCTION POUR MODIFIER 
+    function handleModifyContact(){
+        
+    }
 
   return (
     <>
