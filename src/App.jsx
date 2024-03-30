@@ -70,7 +70,7 @@ function App() {
       setContacts(tableUpdate);
     } 
 
-    // RECUPERE ID, LE NOM ET LE TELEPHONE 
+    // RECUPERE ID, LE NOM ET LE TELEPHONE POUR LA MODIFICATION
     function handleDatasContact(id,name,tel){
       setDataId(id);
       setContactNameEditing(name);
@@ -82,11 +82,12 @@ function App() {
       const updateContact = contacts.map(
         contact => {
           if(contact.id === dataId){
-
-              if(contactNameEditing.trim ()!="" && contactTelEditing.trim() !=""){
+              // il faut que toute ces condition soit rempli pour modifier le tableau avec les nouvelles valeurs
+              if(contactNameEditing.trim ()!="" && contactTelEditing.trim() !="" && contactTelEditing.length == 10){
                 return {...contact,name:contactNameEditing,tel:contactTelEditing}
               }
               else{
+                // en cas d'erreur 
                 alert("erreur . Vous devais saisir un nom et un numéro a 10 chiffre. ");
               }
 
@@ -94,7 +95,9 @@ function App() {
           return contact;
         }
       )
+      // modifie le tableau 
       setContacts(updateContact);
+      // renitialise la valeur de id 
       setDataId(null);
     }
 
